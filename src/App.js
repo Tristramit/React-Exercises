@@ -1,11 +1,11 @@
-import './App.css';
-
-const buttonAlertFunction = () => {alert('Button clicked!')};
+import Button from './components/Button';
 
 function App() {
   return (
-    <div className="App"> 
-      <button onClick={buttonAlertFunction}>Click me!</button>
+    <div>
+      <Button number={1}/>
+      <Button number={2}/>
+      <Button number={3}/>
     </div>
   );
 }
