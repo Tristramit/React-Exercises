@@ -1,13 +1,15 @@
-import Button from './components/Button';
+import React, { useState } from 'react';
 
 function App() {
+  const [counter, setCounter] = useState(0);
+
   return (
     <div>
-      <Button number={1}/>
-      <Button number={2}/>
-      <Button number={3}/>
+      <p>You clicked {counter} times</p>
+      <button onClick={() => setCount(counter + 1)}>
+        Click me
+      </button>
     </div>
   );
-}
 
 export default App;
