@@ -1,4 +1,5 @@
 import React from 'react';
+import ListItem from './components/ListItem';
 
 function App() {
   const arr = ['dog', 'cat', 'chicken', 'cow', 'sheep', 'horse']
@@ -6,7 +7,7 @@ function App() {
   return (
     <div>
      {arr.map((val)=>(
-      <li>{val}</li>
+      <ListItem List={val} />
      ))}
     </div>
   );
