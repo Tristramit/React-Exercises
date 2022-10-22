@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function App() {
-  const [counter, setCounter] = useState(0);
-
+  const arr = ['dog', 'cat', 'chicken', 'cow', 'sheep', 'horse']
+  
   return (
     <div>
-      <p>You clicked {counter} times</p>
-      <button onClick={() => setCount(counter + 1)}>
-        Click me
-      </button>
+     {arr.map((val)=>(
+      <li>{val}</li>
+     ))}
     </div>
   );
-
+  };
+  
 export default App;
