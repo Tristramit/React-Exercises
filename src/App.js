@@ -1,14 +1,27 @@
-import React from 'react';
-import ListItem from './components/ListItem';
+import React,{ useState } from 'react';
 
 function App() {
-  const arr = ['dog', 'cat', 'chicken', 'cow', 'sheep', 'horse']
-  
+  const[firstName, setFirstName] = useState("")
+  const[lastName, setLastName] = useState("")
+
+
+  const firstNameChangeHandler = (event) => {
+    setFirstName(event.target.value)
+  };
+  const lastNameChangeHandler = (event) => {
+    setLastName(event.target.value)
+  };
+  const clickHandler = () =>{
+    alert("Hello " + firstName + " "+ lastName + "!")
+  }
+
   return (
     <div>
-     {arr.map((val)=>(
-      <ListItem List={val} />
-     ))}
+      <form>
+        <input type="text" placeholder="First Name" onChange={firstNameChangeHandler}/>
+        <input type="text" placeholder="Last Name" onChange={lastNameChangeHandler}/>
+        <button onClick={clickHandler}>Greet Me!</button>
+        </form>
     </div>
   );
   };
