@@ -1,46 +1,54 @@
-import React from 'react';
-
-class freeCodeCamp extends React.Component {
+class MyApp extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        input: '',
-        submit: ''
-      };
+        inputValue: ''
+      }
       this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleChange(event) {
       this.setState({
-        input: event.target.value
+        inputValue: event.target.value
       });
     }
-    handleSubmit(event) {
-      // Change code below this line
-        event.preventDefault();
-        this.setState({
-            submit: this.state.input
-        })
-      // Change code above this line
+    render() {
+      return (
+         <div>
+          { /* Change code below this line */ }
+            <GetInput input={this.state.inputValue} handleChange={this.handleChange} />
+            <RenderInput input={this.state.inputValue}/>
+          { /* Change code above this line */ }
+         </div>
+      );
+    }
+  };
+  
+  class GetInput extends React.Component {
+    constructor(props) {
+      super(props);
     }
     render() {
       return (
         <div>
-          <form onSubmit={this.handleSubmit}>
-            {/* Change code below this line */}
-            <input value={this.state.input} onChange={this.handleChange} />
-            {/* Change code above this line */}
-            <button type='submit'>Submit!</button>
-          </form>
-          {/* Change code below this line */}
-            <h1>{this.state.submit}</h1>
-          {/* Change code above this line */}
+          <h3>Get Input:</h3>
+          <input
+            value={this.props.input}
+            onChange={this.props.handleChange}/>
         </div>
       );
     }
-  }
-
-export default freeCodeCamp;
-
-
-
+  };
+  
+  class RenderInput extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+        <div>
+          <h3>Input Render:</h3>
+          <p>{this.props.input}</p>
+        </div>
+      );
+    }
+  };
